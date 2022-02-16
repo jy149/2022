@@ -4,21 +4,18 @@ x 와 같은 값을 가지는 원소의 인덱스 리턴, 존재하지 않을 �
 L은 자연수 원소, 크기순으로 정렬되어있음, 동일 원소 두번 이상 없음
 '''
 L = [2, 5, 7, 9, 11]
-x = 4
-
-
 def solution(L,x):
     lower = 0
     upper = len(L) - 1
-    i = 0
-    while lower < upper:
-        mid = (lower + upper) // 2 # value 값
+    idx = -1
+    while lower <= upper:
+        mid = int((lower + upper) // 2) # index 값
         if L[mid] == x:
-            return mid
+            idx = mid
+            break
         elif x < L[mid]:
-            upper = mid + 1
+            upper = mid - 1
         elif x > L[mid]:
-            lower = mid - 1
-    return -1
-
-print(solution(L,x))
+            lower = mid + 1
+    return idx
+print(solution(L,9))
