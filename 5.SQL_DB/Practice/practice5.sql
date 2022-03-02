@@ -1,0 +1,32 @@
+-- 연습 실제 데이터 기반, 데이터베이스 직접 만들어보기1
+show databases;
+create database ecommerce;
+show databases;
+use ecommerce;
+
+create table product(
+	PRODUCT_CODE VARCHAR(20) NOT NULL,
+    TITLE VARCHAR(200) NOT NULL,
+    ORI_PRICE INT,
+    DISCOUNT_PRICE INT,
+    DISCOUNT_PERCENT INT,
+    DELIVERY VARCHAR(2),
+    PRIMARY KEY(PRODUCT_CODE)
+);
+DESC PRODUCT;
+
+create table ranking(
+	ID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    CATEGROY VARCHAR(50),
+    SUBCATEGROY VARCHAR(50),
+    RANKING INT NOT NULL,
+    PRODUCT_CODE VARCHAR(20) NOT NULL,
+    PRIMARY KEY(ID)
+);
+DESC RANKING;
+
+INSERT INTO PRODUCT VALUES
+('215673140', '스위트바니 여름신상 5900원~롱원피스티셔츠/긴팔/반팔', 23000, 6900, 70, 'F');
+SELECT * FROM PRODUCT;
+
+
